@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
 
 		## Subindo o docker-compose
 		emissairedev.vm.provision "shell", inline: "sudo curl -fsSL \"https://raw.githubusercontent.com/falha-no-processamento/emissaire/main/docker-compose.yml\" -o docker-compose.yml"
-		emissairedev.vm.provision "shell", inline: "docker-compose up"
+		emissairedev.vm.provision "shell", inline: "docker-compose up -d"
 
 		emissairedev.vm.provider "virtualbox" do |vb|
 			vb.gui = false
