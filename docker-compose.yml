@@ -1,0 +1,16 @@
+version: "3.9"
+
+services: 
+    proxy:
+        image: nginx:alpine
+        container_name: proxy-lb
+        restart: unless-stopped
+        tty: true
+        ports:
+            - "80:80"
+            - "443:443"
+        networks: 
+            - minha-rede
+networks: 
+    minha-rede:
+        driver: bridge

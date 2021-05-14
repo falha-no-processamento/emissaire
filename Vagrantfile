@@ -16,6 +16,10 @@ Vagrant.configure("2") do |config|
         emissairedev.vm.provision "shell", inline: "sudo curl -L \"https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)\" -o /usr/local/bin/docker-compose"
         emissairedev.vm.provision "shell", inline: "chmod +x /usr/local/bin/docker-compose"
 
+		## Subindo o docker-compose
+		emissairedev.vm.provision "shell", inline: "sudo curl -fsSL \"https://raw.githubusercontent.com/falha-no-processamento/emissaire/main/docker-compose.yml\" -o docker-compose.yml"
+		emissairedev.vm.provision "shell", inline: "docker-compose up"
+
 		emissairedev.vm.provider "virtualbox" do |vb|
 			vb.gui = false
 			vb.name = "emissaire"
