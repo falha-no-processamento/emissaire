@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
 	config.vm.define "emissairedev", primary: true do |emissairedev|
 		emissairedev.vm.box = "ubuntu/hirsute64"
 		emissairedev.vm.hostname = "emissaire"
-		emissairedev.vm.network "private_network", type: "dhcp", mac: "080027BE791E"
+		emissairedev.vm.network "private_network", type: "dhcp"
         
         ## Atualizando a máquina
         emissairedev.vm.provision "shell", inline: "apt update -y"
